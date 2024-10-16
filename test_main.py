@@ -31,4 +31,4 @@ def test_update():
 
 
 def test_delete():
-    assert delete_query(dispatch,date) == "Deleted successfully"
+    assert delete_query() == "Deleted successfully"
