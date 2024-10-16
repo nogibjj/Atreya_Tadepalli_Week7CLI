@@ -30,7 +30,7 @@ def read_query():
     for row in rows:
         print(row)
     conn.close()
-    print("Success")
+    return "Success"
 
 def update_query(wins,losses,team_name):
     """Update the records included within the Ubertrips database"""
@@ -42,7 +42,7 @@ def update_query(wins,losses,team_name):
     print("Data Update")
     conn.commit()
     conn.close()
-    print("Updated successfully")
+    return "Updated successfully"
 
 def delete_query():
     """Delete the record containing the provided team name and year"""
@@ -55,7 +55,7 @@ def delete_query():
     print("Deleting data:")
     print(deleted)
     conn.close()
-    print("Deleted successfully")
+    return "Deleted successfully"
 
 if __name__ == "__main__":
     create_query()
