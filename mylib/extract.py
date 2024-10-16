@@ -10,7 +10,7 @@ def extract(url="https://raw.githubusercontent.com/\
             RafaganCarvalho/CourseraMichiganCourses/refs/\
             heads/main/Introduction%20to%20Data%20Science/\
             assignments/assignment4/assets/mlb.csv", 
-            file_path="data/mlb-test.csv",
+            file_path="mlb-test.csv",
             directory="data",
 ):
     """"Extract a url to a file path"""
