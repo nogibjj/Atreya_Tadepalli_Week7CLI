@@ -5,7 +5,9 @@ food dataset
 """
 import requests
 
-def extract(url="https://raw.githubusercontent.com/RafaganCarvalho/CourseraMichiganCourses/refs/heads/main/Introduction%20to%20Data%20Science/assignments/assignment4/assets/mlb.csv", 
+def extract(url="https://raw.githubusercontent.com/\
+            RafaganCarvalho/CourseraMichiganCourses/refs/heads/main/Introduction%20to%20Data%20Science/\
+            assignments/assignment4/assets/mlb.csv", 
             file_path="data/mlb-test.csv",
             directory="data",
 ):
