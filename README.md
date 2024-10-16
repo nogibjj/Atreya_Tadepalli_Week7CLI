@@ -4,15 +4,9 @@
 
 
 
-### Lab:
+### Purpose:
 
-* Use an AI Assistant, but use a different one then you used from a previous lab (Anthropic's Claud, Bard, Copilot, CodeWhisperer, Colab AI, etc)
-* ETL-Query:  [E] Extract a dataset from URL, [T] Transform, [L] Load into SQLite Database and [Q] Query
-For the ETL-Query lab:
-* [E] Extract a dataset from a URL like Kaggle or data.gov. JSON or CSV formats tend to work well.
-* [T] Transform the data by cleaning, filtering, enriching, etc to get it ready for analysis.
-* [L] Load the transformed data into a SQLite database table using Python's sqlite3 module.
-* [Q] Write and execute SQL queries on the SQLite database to analyze and retrieve insights from the data.
+* The purpose of this project is ultimately to establish an ETL-Query pipeline, whereby a dataset can be uploaded to Databricks and can be operated on. In this project, I used a dataset of MLB records from the 2018 season and prior seasons. I specifically added new entries related to records, and deleted the Atlanta Braves 2018 record from the dataset.
 
 #### Tasks:
 
