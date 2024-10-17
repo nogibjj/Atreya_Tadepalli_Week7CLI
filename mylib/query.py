@@ -41,7 +41,8 @@ def join():
         mlb_info = [mlb1 for mlb1 in mlb_results if mlb1[0] == baseball_team]
         if mlb_info:
             mlb_Salary, mlb_Winning = mlb_info[0][1], mlb_info[0][2]
-            combined_results.append((baseball_team,baseball_W,baseball_L, baseball_League, mlb_Salary, mlb_Winning))
+            combined_results.append((baseball_team,baseball_W,baseball_L\
+                                     , baseball_League, mlb_Salary, mlb_Winning))
 
     print(combined_results)
 

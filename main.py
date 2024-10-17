@@ -3,7 +3,8 @@ ETL-Query script
 """
 from mylib.extract import extract, extract_second
 from mylib.transform_load import load, load_second
-from mylib.query import create_query, read_query, update_query, delete_query, join, aggregation, sort_db
+from mylib.query import create_query, read_query, update_query
+from mylib.query import delete_query, join, aggregation, sort_db
 
 # Extract
 print("Extracting data...")
