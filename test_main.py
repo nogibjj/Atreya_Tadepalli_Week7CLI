@@ -10,7 +10,7 @@ update_query,delete_query
 
 def test_extract():
     extracted_data = extract()
-    assert extracted_data == "data/mlb-test.csv"
+    assert extracted_data == "mlb-test.csv"
 
 
 def test_transform_load():
