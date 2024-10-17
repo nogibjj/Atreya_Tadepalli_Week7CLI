@@ -15,21 +15,21 @@ print("Transforming data...")
 load()
 load_second()
 
-#join()
-#aggregation()
+join()
+aggregation()
 sort_db()
 # create
-#print("Creating data...")
-#create_query()
+print("Creating data...")
+create_query()
 
 # read
-#print("Reading data...")
-#read_query()
+print("Reading data...")
+read_query()
 
 # update
-#print("Updating data...")
-#update_query(80, 63, "Boston Red Sox")
+print("Updating data...")
+update_query(80, 63, "Boston Red Sox")
 
 # delete
-#print("Deleting data...")
-#delete_query()
+print("Deleting data...")
+delete_query()
