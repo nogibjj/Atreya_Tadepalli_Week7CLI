@@ -1,17 +1,19 @@
 """
 ETL-Query script
 """
-from mylib.extract import extract
-from mylib.transform_load import load
+from mylib.extract import extract, extract_second
+from mylib.transform_load import load, load_second
 from mylib.query import create_query, read_query, update_query, delete_query
 
 # Extract
 print("Extracting data...")
 extract()
+extract_second()
 
 # Transform and load
 print("Transforming data...")
 load()
+load_second()
 
 # create
 print("Creating data...")

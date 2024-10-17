@@ -8,7 +8,7 @@ import csv
 import os
 
 #load the csv file and insert into a new sqlite3 database
-def load(dataset="mlb-test.csv"):
+def load(dataset="data/mlb-test.csv"):
     """"Transforms and Loads data into the local SQLite3 database"""
 
     #prints the full working directory and path
@@ -60,7 +60,7 @@ def load(dataset="mlb-test.csv"):
     return "baseball.db"
 
 
-def load_second(dataset="MLB.csv"):
+def load_second(dataset="data/MLB.csv"):
     """"Transforms and Loads data into the local SQLite3 database"""
 
     #prints the full working directory and path
