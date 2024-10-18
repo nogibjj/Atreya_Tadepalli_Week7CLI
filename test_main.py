@@ -7,6 +7,7 @@ from mylib.transform_load import load
 from mylib.query import create_query, read_query, update_query, delete_query, join
 
 
+
 def test_extract():
     extracted_data = extract()
     assert extracted_data == "data/mlb-test.csv"
@@ -35,3 +36,4 @@ def test_update():
 
 def test_delete():
     assert delete_query() == "Deleted successfully"
+
