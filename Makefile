@@ -18,28 +18,6 @@ container-lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
 
 refactor: format lint
-
-all: install lint test format
-
-generate_and_push:
-	# Create the markdown file 
-	python test_main.py  # Replace with the actual command to generate the markdown
-
-	# Add, commit, and push the generated files to GitHub
-	@if [ -n "$$(git status --porcelain)" ]; then \
-		git config --local user.email "action@github.com"; \
-		git config --local user.name "GitHub Action"; \
-		git add .; \
-		git commit -m "Add SQL log"; \
-		git push; \
-	else \
-		echo "No changes to commit. Skipping commit and push."; \
-	fi
-
-transform_load: 
-	python main.py transform_load
-
-query:
-	python main.py general_query "SELECT * FROM baseball WHERE team= 'New York Yankees';"
 		
+all: install lint test format 
 
