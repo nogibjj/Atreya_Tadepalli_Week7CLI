@@ -16,15 +16,13 @@ jobs:
           python-version: 3.9
       - name: install packages
         run: make install
-      - name: lint
-        run: make lint
-      - name: transform_load
-        run: make transform_load 
-      - name: query
-        run: make query
-      - name: test
-        run: make test
       - name: format
         run: make format
-      - name: generate_and_push
-        run: make generate_and_push
+      - name: lint
+        run: make lint
+      - name: test
+        env:
+          DATABRICKS_KEY: ${{ secrets.DATABRICKS_KEY }}
+          SERVER_HOSTNAME: ${{ secrets.SERVER_HOSTNAME }}
+          DATABRICKS_HTTPPATH: ${{ secrets.HTTP_PATH }}
+        run: make test
