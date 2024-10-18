@@ -92,6 +92,7 @@ def aggregation():
 
             # Close connection
             baseball_1.close()
+            log_query(f"{query}", result)
 
             print(result)
 
@@ -123,6 +124,7 @@ def sort_db():
 
             # Close connection
             baseball_2.close()
+            log_query(f"{query}", results)
 
             print(results)
 
