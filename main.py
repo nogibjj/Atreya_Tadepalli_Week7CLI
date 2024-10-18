@@ -13,24 +13,24 @@ extract_second()
 
 # Transform and load
 print("Transforming data...")
-load()
-load_second()
+#load()
+#load_second()
 
 join()
-aggregation()
-sort_db()
+#aggregation()
+#sort_db()
 # create
 print("Creating data...")
-create_query()
+#create_query()
 
 # read
 print("Reading data...")
-read_query()
+#read_query()
 
 # update
 print("Updating data...")
-update_query(80, 63, "Boston Red Sox")
+#update_query(80, 63, "Boston Red Sox")
 
 # delete
 print("Deleting data...")
-delete_query()
+#delete_query()

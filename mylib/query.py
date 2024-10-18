@@ -1,100 +1,143 @@
 """Query the database"""
 
 import sqlite3
-
+from databricks import sql
+import os
 
 def join():
-    baseball1=sqlite3.connect("baseball.db")
-    baseball_cursor=baseball1.cursor()
+    
+    #Local connection syntax
+    #baseball1=sqlite3.connect("baseball.db")
+    with sql.connect(server_hostname = os.getenv("SERVER_HOSTNAME"),
+                 http_path       = os.getenv("DATABRICKS_HTTPPATH"),
+                 access_token    = os.getenv("DATABRICKS_KEY")) as baseball1:
+        with baseball1.cursor() as baseball_cursor:
 
-    mlb=sqlite3.connect("baseball_2.db")
-    mlb_cursor=mlb.cursor()
+    #mlb=sqlite3.connect("baseball.db")
+    #mlb_cursor=mlb.cursor()
 
-    #For first database
-    baseball_query = """
-    SELECT b.team, b.W, b.L, b.League
-    FROM baseball b
-    ORDER BY b.team;
-    """
-    baseball_cursor.execute(baseball_query)
+            #For first database
+            baseball_query = """
+            SELECT b.team, b.W, b.L, b.League
+            FROM baseball b
+            ORDER BY b.team;
+            """
+            #baseball_cursor.execute(baseball_query)
+            #baseball_results = baseball_cursor.fetchall()
 
-    # For second database
-    mlb_query = """
-    SELECT s.Team, s.Salary, s.Winning
-    FROM baseball_2 s;
-    """
-    mlb_cursor.execute(mlb_query)
+            # For second database
+            mlb_query = """
+            SELECT s.Team, s.Salary, s.Winning
+            FROM mlb_baseball_1 s;
+            """
+            #baseball_cursor.execute(mlb_query)
 
-    # Fetch results
-    baseball_results = baseball_cursor.fetchall()
-    mlb_results = mlb_cursor.fetchall()
+            #test query
+            test_query = """
+            SELECT baseball.team, 
+            avg(mlb.Winning) AS winning_pct,
+            avg(mlb.Salary) avg_payroll 
+            FROM ids706_data_engineering.default.baseball AS baseball
+            RIGHT JOIN ids706_data_engineering.default.mlb_baseball_1 AS mlb
+            ON baseball.team = mlb.Team
+            GROUP BY baseball.team
+            ORDER BY avg_payroll DESC;
+            """
+            baseball_cursor.execute(test_query)
+            # Fetch results
+            test_results = baseball_cursor.fetchall()
 
     # Close connections
     baseball1.close()
-    mlb.close()
+    log_query(f"{test_query}",test_results)
 
     # Combine results
-    combined_results = []
+    #combined_results = []
 
-    for result in baseball_results:
+    """for result in baseball_results:
         baseball_team, baseball_W,baseball_L, baseball_League= result
         mlb_info = [mlb1 for mlb1 in mlb_results if mlb1[0] == baseball_team]
         if mlb_info:
             mlb_Salary, mlb_Winning = mlb_info[0][1], mlb_info[0][2]
             combined_results.append((baseball_team,baseball_W,baseball_L\
                                      , baseball_League, mlb_Salary, mlb_Winning))
+"""
+    #print(combined_results)
 
-    print(combined_results)
-
-    return combined_results
+    return "Success-1!"
     
 
 def aggregation():
-    baseball_1 = sqlite3.connect("baseball.db")
-    baseball_cursor = baseball_1.cursor()
+    #Databricks connection
+    with sql.connect(server_hostname = os.getenv("SERVER_HOSTNAME"),
+                 http_path= os.getenv("DATABRICKS_HTTPPATH"),
+                 access_token = os.getenv("DATABRICKS_KEY")) as baseball_1:
+        with baseball_1.cursor() as baseball_cursor:
+
+    #For local use
+    #baseball_1 = sqlite3.connect("baseball.db")
+    #baseball_cursor = baseball_1.cursor()
 
     # Execute SQL query
-    query = """
-    SELECT team, COUNT(*) as original_count
-    FROM baseball
-    WHERE team="Arizona Diamondbacks"
-    GROUP BY team;
-    """
-    baseball_cursor.execute(query)
+            query = """
+            SELECT team, COUNT(*) as original_count
+            FROM baseball
+            WHERE team="Arizona Diamondbacks"
+            GROUP BY team;
+            """
+            baseball_cursor.execute(query)
 
-    # Fetch result
-    result = baseball_cursor.fetchone()
+            # Fetch result
+            result = baseball_cursor.fetchall()
 
-    # Close connection
-    baseball_1.close()
+            # Close connection
+            baseball_1.close()
 
-    print(result)
+            print(result)
 
     return result
 
 def sort_db():
-    # Connect to the database
-    mlb2 = sqlite3.connect("baseball_2.db")
-    cursor = mlb2.cursor()
+    
+
+    #Databricks connection
+    with sql.connect(server_hostname = os.getenv("SERVER_HOSTNAME"),
+                 http_path       = os.getenv("DATABRICKS_HTTPPATH"),
+                 access_token    = os.getenv("DATABRICKS_KEY")) as baseball_2:
+        with baseball_2.cursor() as cursor:
+
+    # Local connection to the database
+    #mlb2 = sqlite3.connect("baseball.db")
+    #cursor = mlb2.cursor()
 
     # Arrange teams by Winning percentage
-    query = """
-    SELECT team, Salary,Winning
-    FROM baseball_2
-    ORDER BY Winning DESC;
-    """
-    cursor.execute(query)
+            query = """
+            SELECT team, Salary,Winning
+            FROM mlb_baseball_1
+            ORDER BY Winning DESC;
+            """
+            cursor.execute(query)
 
-    # Fetch results
-    results = cursor.fetchall()
+            # Fetch results
+            results = cursor.fetchall()
 
-    # Close connection
-    mlb2.close()
+            # Close connection
+            baseball_2.close()
 
-    print(results)
+            print(results)
 
     return results
+
+
+LOG_FILE = "query_log.md"
+
+def log_query(query, result="none"):
+    """adds to a query markdown file"""
+    with open(LOG_FILE, "a") as file:
+        file.write(f"```sql\n{query}\n```\n\n")
+        file.write(f"```response from databricks\n{result}\n```\n\n")
     
+
     
 def create_query():
     """Query the database to insert a new row within the baseball table"""
