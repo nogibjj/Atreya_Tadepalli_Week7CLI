@@ -16,7 +16,7 @@ def test_transform_load():
     loaded_db = load()
     assert loaded_db == "Sucess!"
 
-def join():
+def test_join():
     join_test = join()
     assert join_test == "Success-1!"
 
