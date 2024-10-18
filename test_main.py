@@ -4,7 +4,7 @@ Test goes here
 """
 from mylib.extract import extract
 from mylib.transform_load import load
-from mylib.query import create_query, read_query, update_query, delete_query
+from mylib.query import create_query, read_query, update_query, delete_query, join
 
 
 def test_extract():
@@ -14,7 +14,11 @@ def test_extract():
 
 def test_transform_load():
     loaded_db = load()
-    assert loaded_db == "baseball.db"
+    assert loaded_db == "Sucess!"
+
+def join():
+    join_test = join()
+    assert join_test == "Success-1!"
 
 
 def test_create():

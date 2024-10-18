@@ -16,23 +16,24 @@ def join():
     #mlb=sqlite3.connect("baseball.db")
     #mlb_cursor=mlb.cursor()
 
-            #For first database
+            """#For first database
             baseball_query = """
-            SELECT b.team, b.W, b.L, b.League
-            FROM baseball b
-            ORDER BY b.team;
+            #SELECT b.team, b.W, b.L, b.League
+            #FROM baseball b
+            #ORDER BY b.team;
             """
             #baseball_cursor.execute(baseball_query)
             #baseball_results = baseball_cursor.fetchall()
-
+"""
             # For second database
-            mlb_query = """
-            SELECT s.Team, s.Salary, s.Winning
-            FROM mlb_baseball_1 s;
+            #mlb_query = """
+            #SELECT s.Team, s.Salary, s.Winning
+            #FROM mlb_baseball_1 s;
             """
             #baseball_cursor.execute(mlb_query)
-
-            #test query
+"""
+            
+            #actual query
             test_query = """
             SELECT baseball.team, 
             avg(mlb.Winning) AS winning_pct,

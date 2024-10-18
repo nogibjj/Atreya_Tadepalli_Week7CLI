@@ -69,7 +69,8 @@ def load(dataset="data/mlb-test.csv"):
                 for row in filtered_payload:
                 # Convert each element to the appropriate SQL representation
                 # (e.g., wrap strings in single quotes and leave numbers as they are)
-                    c.execute(string_sql, [value if value is not None else None for value in row])
+                    c.execute(string_sql,
+                    [value if value is not None else None for value in row])
 
                 connection.commit()
                 print("Data inserted successfully.")
@@ -110,7 +111,8 @@ def load_second(dataset2="data/MLB.csv"):
                 VALUES (?,?,?)
                 """
                 for row in payload2:
-                    c.execute(insert_sql, [value if value is not None else None for value in row])
+                    c.execute(insert_sql,
+                    [value if value is not None else None for value in row])
 
                 connection.commit()
                 print("Data inserted successfully.")
