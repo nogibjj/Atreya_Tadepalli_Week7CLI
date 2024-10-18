@@ -18,8 +18,6 @@ jobs:
         run: make install
       - name: lint
         run: make lint
-      - name: extract 
-        run: make extract 
       - name: transform_load
         run: make transform_load 
       - name: query
