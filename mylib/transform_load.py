@@ -30,6 +30,7 @@ def load(dataset="data/mlb-test.csv"):
             row[3] = None
     load_dotenv()
 
+
     with sql.connect(
         server_hostname = os.getenv("SERVER_HOSTNAME"),
         http_path= os.getenv("DATABRICKS_HTTPPATH"),
