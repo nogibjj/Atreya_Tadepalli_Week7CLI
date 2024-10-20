@@ -7,8 +7,8 @@
 - [Data](#data)
 - [Upload_Process](#Upload_Process)
 - [Query](#query)
-- [Contributing](#contributing)
-- [License](#license)
+- [Test Query and Expected Results](#Test_Query_and_Expected_Results)
+- [Query Log](#Query_Log)
 
 
 ## Purpose:
@@ -50,33 +50,22 @@
 * The test query which is ultimately executed when running join involves a combination of operations. Specifically, in this query, I would like to order the teams from highest to lowest salary, and average the winning percentage to ultimately understand if payroll may impact winning.
 * To do so, the test query joins the mlb-baseball-1 columns to the right of the baseball columns, and matches along team name. All results are subsequently grouped by team, and only the team, average salary, and average winning are reported.
 * Below are the top five teams in terms of salary.
+  
 | state                  | Salary              | Winning_Pct           |
 |-------------------     |---------------------|-----------------------|
-| New York Yankees       | 7789235             | 52%                   |
-| Los Angeles            | 4851538             | 52%                   |
-| Philadelphia Phillies  | 2056721             | 45%                   |
-| Boston Red Sox         | 490463              | 59%                   |
-| Detroit Tigers         | 520111              | 57%                   |
+| New York Yankees       | 228,995,945         | 52%                   |
+| Los Angeles            | 179,234,079         | 52%                   |
+| Philadelphia Phillies  | 159,578,214         | 45%                   |
+| Boston Red Sox         | 158,967,286         | 59%                   |
+| Detroit Tigers         | 149,046,844         | 57%                   |
 
+* Note: While the query log shows None as the 2nd team, this is because of an incomplete join between the two databases - one database uses "L.A." to denote Los Angeles, while the other uses "Los Angeles".
 
-* What insights or new knowledge did you gain from querying the SQLite database?
-* How can SQLite and SQL help make data analysis more efficient? What are the limitations?
-* What AI assistant did you use and how did it compare to others you've tried? What are its strengths and weaknesses?
-* 
-* If you could enhance this lab, what would you add or change? What other data would be interesting to load and query?
+## Test
 
-##### Challenge Exercises
+* To test this query, I used assert functions to verify that the value was not None. This applies to both the join function as well as the load function.
 
-* Add more transformations to the data before loading it into SQLite. Ideas: join with another dataset, aggregate by categories, normalize columns.
-* Write a query to find correlated fields in the data. Print the query results nicely formatted.
-* Create a second table in the SQLite database and write a join query with the two tables.
-* Build a simple Flask web app that runs queries on demand and displays results.
-* Containerize the application using Docker so the database and queries can be portable
-
-
-
-
-
+## Query_Log
 
 [query result here](query_log.md)
 
