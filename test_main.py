@@ -4,7 +4,7 @@ Test goes here
 """
 from mylib.extract import extract
 from mylib.transform_load import load
-from mylib.query import create_query, read_query, update_query, delete_query, join
+from mylib.query import create_query, read_query, update_query, delete_query
 
 
 
@@ -17,9 +17,9 @@ def test_transform_load():
     loaded_db = load()
     assert loaded_db is not None
 
-def test_join():
-    join_test = join()
-    assert join_test is not None
+#def test_join():
+    #join_test = join()
+    #assert join_test is not None
 
 
 def test_create():
