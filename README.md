@@ -1,4 +1,5 @@
 ## Python Command Line Usage
+[![CI/CD run](https://github.com/nogibjj/Atreya_Tadepalli_Week7CLI/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Atreya_Tadepalli_Week7CLI/actions/workflows/cicd.yml)
 
 ## Table of Contents
 
@@ -27,7 +28,7 @@
   <img width="388" alt="image" src="https://github.com/user-attachments/assets/9e7380ec-a866-419f-866e-738352e3de4d">
 
 * Extract
-* <img width="383" alt="image" src="https://github.com/user-attachments/assets/c2f749b1-e102-4fca-8956-b878323571ac">
+  <img width="383" alt="image" src="https://github.com/user-attachments/assets/c2f749b1-e102-4fca-8956-b878323571ac">
 
 
 
