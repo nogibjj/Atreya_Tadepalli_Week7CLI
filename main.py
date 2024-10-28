@@ -14,7 +14,7 @@ def handle_arguments(args):
     parser.add_argument(
         "Functions",
         choices=["extract", "crud"],
-        help="Specify one of the following functions to execute: extract, load, or crud."
+        help="Specify one of the functions to execute: extract or crud."
     )
 
     # Parse arguments
