@@ -6,6 +6,7 @@
 - [Purpose](#purpose)
 - [Additional Requirements](#Requirements)
 - [Data](#data)
+- [Command_Line](#command_Line)
 - [Results](#Results)
 
 
@@ -20,6 +21,10 @@
 ## Data:
 
 * All operations executed pertain to just one database - the MLB dataset which involves a team, its wins, losses, win-loss percentage, games back (of the division leader), and year.
+
+## Command Line:
+
+* To enable a command line, I added two new methods to the main.py file: handle_arguments and main. In "handle_arguments", I added two avaialble arguments for the parser to evaluate and execute: extract and crud. In the main method, depending on the function entered, the appropriate method(s) are run.
 
 ## Results
 
