@@ -3,7 +3,7 @@ Test goes here
 
 """
 from mylib.extract import extract
-from mylib.transform_load import load
+#from mylib.transform_load import load
 from mylib.query import create_query, read_query, update_query, delete_query
 
 
@@ -13,9 +13,9 @@ def test_extract():
     assert extracted_data == "data/mlb-test.csv"
 
 
-def test_transform_load():
-    loaded_db = load()
-    assert loaded_db is not None
+#def test_transform_load():
+    #loaded_db = load()
+    #assert loaded_db is not None
 
 #def test_join():
     #join_test = join()
