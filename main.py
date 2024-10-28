@@ -26,7 +26,7 @@ def main():
 
     # Execute based on the chosen function
     if args.Functions == "extract":
-        print("Extracting data...")
+        print("Extracting data....")
         print(extract())
     elif args.Functions == "crud":
         print("Creating data...")
